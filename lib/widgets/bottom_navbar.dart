@@ -1,8 +1,8 @@
 import 'package:budget_app/category%20pages/category.dart';
 import 'package:budget_app/models/category/category_model.dart';
-import 'package:budget_app/pages/graph/graph.dart';
-import 'package:budget_app/pages/home/home_page.dart';
-import 'package:budget_app/pages/settings.dart';
+import 'package:budget_app/screens/pages/graph.dart';
+import 'package:budget_app/screens/pages/home_page.dart';
+import 'package:budget_app/screens/pages/settings.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import '../db/transaction_db.dart';

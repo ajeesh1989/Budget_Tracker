@@ -58,6 +58,7 @@ dependencies:
   url_launcher: ^6.1.5
   month_year_picker: ^0.2.0+3
   font_awesome_flutter: ^10.3.0
+  get: ^4.6.5
   
 
 dev_dependencies:

@@ -1,8 +1,9 @@
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:budget_app/models/transaction/transaction_model.dart';
-import 'package:budget_app/pages/splash.dart';
+import 'package:budget_app/screens/pages/splash.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 
 const saveKeyValue = 'UserRegistered';
@@ -28,7 +29,7 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: MySplash(),
     );

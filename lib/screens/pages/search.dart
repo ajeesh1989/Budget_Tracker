@@ -5,6 +5,7 @@ import 'package:budget_app/transactions/update_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get.dart';
 
 class CustomSerchDelegate extends SearchDelegate {
   @override
@@ -66,11 +67,10 @@ class CustomSerchDelegate extends SearchDelegate {
                                 icon: Icons.edit,
                                 label: 'Edit',
                                 onPressed: ((context) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (ctx) => UpdateTrans(
-                                            index: index,
-                                            transactionModel: data,
-                                          )));
+                                  Get.to(() => UpdateTrans(
+                                        index: index,
+                                        transactionModel: data,
+                                      ));
                                 }),
                               ),
                               SlidableAction(
@@ -90,13 +90,13 @@ class CustomSerchDelegate extends SearchDelegate {
                                                 .deleteTransaction(id: data.id);
 
                                             // ignore: use_build_context_synchronously
-                                            Navigator.of(ctx).pop();
+                                            Get.back();
                                           },
                                           child: const Text("Yes"),
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            Navigator.of(ctx).pop();
+                                            Get.back();
                                           },
                                           child: const Text("No"),
                                         )
@@ -179,11 +179,10 @@ class CustomSerchDelegate extends SearchDelegate {
                                 icon: Icons.edit,
                                 label: 'Edit',
                                 onPressed: ((context) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (ctx) => UpdateTrans(
-                                            index: index,
-                                            transactionModel: data,
-                                          )));
+                                  Get.to(() => UpdateTrans(
+                                        index: index,
+                                        transactionModel: data,
+                                      ));
                                 }),
                               ),
                               SlidableAction(
@@ -203,13 +202,13 @@ class CustomSerchDelegate extends SearchDelegate {
                                                 .deleteTransaction(id: data.id);
 
                                             // ignore: use_build_context_synchronously
-                                            Navigator.of(ctx).pop();
+                                            Get.back();
                                           },
                                           child: const Text("Yes"),
                                         ),
                                         TextButton(
                                           onPressed: () {
-                                            Navigator.of(ctx).pop();
+                                            Get.back();
                                           },
                                           child: const Text("No"),
                                         )

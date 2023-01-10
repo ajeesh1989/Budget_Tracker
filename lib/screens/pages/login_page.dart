@@ -1,6 +1,6 @@
-import 'package:budget_app/main.dart';
 import 'package:budget_app/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -74,14 +74,7 @@ class _MyLoginState extends State<MyLogin> {
                 await sharedPreferences.setString(
                     'nameKey', _textController.text);
                 // ignore: use_build_context_synchronously
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const BottomNavbar();
-                    },
-                  ),
-                );
+                Get.to(() => BottomNavbar());
               }
 
               setState(() {});

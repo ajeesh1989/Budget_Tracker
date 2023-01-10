@@ -1,6 +1,5 @@
 import 'package:budget_app/db/filteration_db.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../db/chart_db.dart';
 

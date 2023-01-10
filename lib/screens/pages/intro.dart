@@ -1,9 +1,10 @@
-import 'package:budget_app/pages/login_page.dart';
+import 'package:budget_app/screens/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../intro screens/introscreen_one.dart';
-import '../intro screens/introscreen_three.dart';
-import '../intro screens/introscreen_two.dart';
+import '../../intro screens/introscreen_one.dart';
+import '../../intro screens/introscreen_three.dart';
+import '../../intro screens/introscreen_two.dart';
 
 class MyIntro extends StatefulWidget {
   const MyIntro({super.key});
@@ -50,14 +51,7 @@ class _MyLoginState extends State<MyIntro> {
                 onLastPage == true
                     ? GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const MyLogin();
-                              },
-                            ),
-                          );
+                          Get.off(() => MyLogin());
                         },
                         child: const Text('done'),
                       )

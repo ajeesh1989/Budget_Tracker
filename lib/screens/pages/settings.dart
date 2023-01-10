@@ -1,14 +1,14 @@
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:budget_app/models/transaction/transaction_model.dart';
-import 'package:budget_app/pages/intro.dart';
-import 'package:budget_app/pages/login_page.dart';
 import 'package:budget_app/settingsSubPages/privacy.dart';
 import 'package:budget_app/settingsSubPages/terms.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:share/share.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../settingsSubPages/about.dart';
+import '../../settingsSubPages/about.dart';
+import 'intro.dart';
 
 class MySettings extends StatefulWidget {
   const MySettings({super.key});
@@ -51,14 +51,7 @@ class _MySettingsState extends State<MySettings> {
                       'About',
                       style: TextStyle(fontSize: 20),
                     ),
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const MyAbout();
-                        },
-                      ),
-                    ),
+                    onTap: () => Get.to(() => MyAbout()),
                   ),
                 ],
               ),
@@ -115,12 +108,7 @@ class _MySettingsState extends State<MySettings> {
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
-                                Navigator.pushAndRemoveUntil(context,
-                                    MaterialPageRoute(
-                                  builder: (context) {
-                                    return const MyIntro();
-                                  },
-                                ), (route) => false);
+                                Get.offAll(() => MyIntro());
                               },
                               child: GestureDetector(
                                 child: const Text("Yes"),
@@ -128,7 +116,7 @@ class _MySettingsState extends State<MySettings> {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.of(ctx).pop();
+                                Get.back();
                               },
                               child: GestureDetector(
                                 child: const Text("No"),
@@ -156,32 +144,6 @@ class _MySettingsState extends State<MySettings> {
               const SizedBox(
                 height: 30,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     const Icon(Icons.person),
-              //     const SizedBox(
-              //       width: 15,
-              //     ),
-              //     const SizedBox(
-              //       width: 5,
-              //     ),
-              //     GestureDetector(
-              //       child: const Text(
-              //         'About',
-              //         style: TextStyle(fontSize: 20),
-              //       ),
-              //       onTap: () => Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //           builder: (context) {
-              //             return const MyAbout();
-              //           },
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -220,14 +182,7 @@ class _MySettingsState extends State<MySettings> {
                       'Terms and conditions',
                       style: TextStyle(fontSize: 20),
                     ),
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const myTerms();
-                        },
-                      ),
-                    ),
+                    onTap: () => Get.to(() => myTerms()),
                   ),
                 ],
               ),
@@ -249,14 +204,7 @@ class _MySettingsState extends State<MySettings> {
                       'Privacy policy',
                       style: TextStyle(fontSize: 20),
                     ),
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const privacy();
-                        },
-                      ),
-                    ),
+                    onTap: () => Get.to(() => privacy()),
                   ),
                 ],
               ),

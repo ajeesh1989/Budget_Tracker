@@ -1,12 +1,15 @@
 import 'dart:developer';
 
 import 'package:budget_app/category pages/category.dart';
+import 'package:budget_app/controller/category_controller.dart';
+import 'package:budget_app/controller/home_controller.dart';
 import 'package:budget_app/db/category_db.dart';
 import 'package:budget_app/db/transaction_db.dart';
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:budget_app/models/transaction/transaction_model.dart';
-import 'package:budget_app/pages/box.dart';
+import 'package:budget_app/screens/pages/box.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
@@ -20,6 +23,8 @@ class UpdateTrans extends StatefulWidget {
 }
 
 class _UpdateTransState extends State<UpdateTrans> {
+  final homeController = Get.put(HomeController());
+  final categoryC = Get.put(categoryController());
   late TextEditingController _amountController;
   late TextEditingController _notesController;
   late DateTime selectedDate;
@@ -159,10 +164,7 @@ class _UpdateTransState extends State<UpdateTrans> {
                               decoration: InputDecoration(
                                 suffixIcon: IconButton(
                                   onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (ctx) =>
-                                                const Mycategory()));
+                                    Get.to(() => Mycategory());
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline,
@@ -364,10 +366,10 @@ class _UpdateTransState extends State<UpdateTrans> {
       type: selectedCategoryType,
     );
     log(transaction.toString());
-    TransationDbFunction.instance.updateTransaction(widget.index!, transaction);
-    Navigator.of(context).pop();
-    CategoryDbFunction.instance.refreshUI();
-    TransationDbFunction.instance.refreshUI();
+    homeController.updateTransaction(widget.index!, transaction);
+    Get.back();
+    categoryC.refreshUI();
+    homeController.refreshUI();
   }
 
   String parseDate(DateTime date) {

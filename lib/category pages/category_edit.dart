@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:budget_app/db/category_db.dart';
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 ValueNotifier<CategoryType> selectedCategoryNotifier =
     ValueNotifier(CategoryType.income);
@@ -105,7 +106,7 @@ Future<void> editCategoryAddPopup(
                       ),
                     ),
                   );
-                  Navigator.of(ctx).pop();
+                  Get.back();
                 }
               },
               child: const Text(

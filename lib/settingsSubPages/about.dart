@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-import '../pages/box.dart';
+import '../screens/pages/box.dart';
 
 class MyAbout extends StatefulWidget {
   const MyAbout({super.key});

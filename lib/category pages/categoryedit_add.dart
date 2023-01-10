@@ -1,5 +1,6 @@
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../db/category_db.dart';
 
@@ -79,7 +80,7 @@ class _AddCateoryDialogState extends State<AddCateoryDialog> {
   _cancelButton(BuildContext context) {
     return TextButton(
         onPressed: () {
-          Navigator.of(context).pop();
+          Get.back();
         },
         child: const Text('Cancel'));
   }
@@ -100,7 +101,7 @@ class _AddCateoryDialogState extends State<AddCateoryDialog> {
     } else {
       _categoryManager.insertCategory(category);
     }
-    Navigator.of(context).pop(category);
+    Get.back();
   }
 
   showError(String? string) {

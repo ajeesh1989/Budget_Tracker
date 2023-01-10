@@ -1,10 +1,8 @@
 import 'dart:async';
-
-import 'package:budget_app/main.dart';
-import 'package:budget_app/pages/home/home_page.dart';
-import 'package:budget_app/pages/intro.dart';
+import 'package:budget_app/screens/pages/intro.dart';
 import 'package:budget_app/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'box.dart';
 
@@ -16,16 +14,6 @@ class MySplash extends StatefulWidget {
 }
 
 class _MySplashState extends State<MySplash> {
-  // void goHom() {
-  //   Navigator.of(context).pushReplacement(
-  //       MaterialPageRoute(builder: (context) => const HomePage()));
-  // }
-
-  // void goIntro() {
-  //   Navigator.of(context).pushReplacement(
-  //       MaterialPageRoute(builder: (context) => const MyIntro()));
-  // }
-
   @override
   void initState() {
     checkRegister(context);
@@ -87,8 +75,7 @@ class _MySplashState extends State<MySplash> {
     if (!mounted) {
       return;
     }
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (ctx) => const MyIntro()));
+    Get.off(() => MyIntro());
   }
 
   Future<void> checkRegister(BuildContext context) async {
@@ -101,9 +88,7 @@ class _MySplashState extends State<MySplash> {
       if (!mounted) {
         return;
       }
-
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (ctx) => const BottomNavbar()));
+      Get.off(() => BottomNavbar());
     }
   }
 }

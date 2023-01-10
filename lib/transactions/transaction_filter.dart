@@ -1,6 +1,6 @@
 import 'package:budget_app/db/transaction_db.dart';
 import 'package:budget_app/models/transaction/transaction_model.dart';
-import 'package:budget_app/pages/home/home_transaction_list.dart';
+import 'package:budget_app/screens/pages/home_transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';

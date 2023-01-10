@@ -1,11 +1,14 @@
 import 'package:budget_app/category%20pages/expence_pop.dart';
+import 'package:budget_app/controller/category_controller.dart';
+import 'package:budget_app/controller/home_controller.dart';
 import 'package:budget_app/db/category_db.dart';
 import 'package:budget_app/db/transaction_db.dart';
 import 'package:budget_app/db/filteration_db.dart';
 import 'package:budget_app/models/category/category_model.dart';
 import 'package:budget_app/models/transaction/transaction_model.dart';
-import 'package:budget_app/pages/box.dart';
+import 'package:budget_app/screens/pages/box.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class AddTransactionScreen extends StatefulWidget {
@@ -16,8 +19,10 @@ class AddTransactionScreen extends StatefulWidget {
 }
 
 class _AddTransactionScreenState extends State<AddTransactionScreen> {
+  final transactionController = Get.put(HomeController());
   final _amountController = TextEditingController();
   final _notesController = TextEditingController();
+  final categoryc = Get.put(categoryController());
   DateTime? selectedDate;
   CategoryType selectedCategoryType = CategoryType.income;
   CategoryModel? selectedCategoryModel;
@@ -152,11 +157,6 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                                   onPressed: () {
                                     showCategoryAddPopup(
                                         context, selectedCategoryType);
-
-                                    // Navigator.of(context).push(
-                                    //     MaterialPageRoute(
-                                    //         builder: (ctx) =>
-                                    //             const Mycategory()));
                                   },
                                   icon: const Icon(
                                     Icons.add_circle_outline,
@@ -343,13 +343,13 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
       type: selectedCategoryType,
     );
     // log(transaction.toString());
-    TransationDbFunction.instance.insertTransaction(transaction);
+    transactionController.insertTransaction(transaction);
     filterFunction();
 
-    Navigator.of(context).pop();
-    alltransationNotifier.value;
-    CategoryDbFunction.instance.refreshUI();
-    TransationDbFunction.instance.refreshUI();
+    Get.back();
+    transactionController.alltransationNotifier;
+    transactionController.refreshUI();
+    categoryc.refreshUI();
   }
 
   String parseDate(DateTime date) {
