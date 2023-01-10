@@ -36,7 +36,7 @@ class CustomSerchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    double width1 = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return ValueListenableBuilder(
       valueListenable: alltransationNotifier,
@@ -49,7 +49,7 @@ class CustomSerchDelegate extends SearchDelegate {
               child: CustomCard(
                 elevation: 0,
                 color: const Color.fromARGB(255, 216, 212, 212),
-                width: width * 0.98,
+                width: width1 * 0.98,
                 height: height * 0.96,
                 borderRadius: 20,
                 child: ListView.separated(
